@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Beef,
@@ -450,17 +451,58 @@ function Contact() {
           </FadeIn>
         </div>
 
-        <div className="mt-8 aspect-[4/3] sm:aspect-[16/6] w-full overflow-hidden border border-border">
-          <iframe
-            title="Karte: Gasthof Menzinger, Hauptstraße 2, 84435 Lengdorf"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=12.2183%2C48.2793%2C12.2483%2C48.2893&layer=mapnik&marker=48.2843%2C12.2333"
-            className="w-full h-full border-0"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-        </div>
+        <Karte />
       </div>
     </section>
+  );
+}
+
+/**
+ * Die Karte lädt erst auf Klick. Ohne Einwilligung geht keine IP-Adresse
+ * an OpenStreetMap – dadurch ist beim Seitenaufruf kein Drittanbieter
+ * eingebunden und es wird kein Cookie-Banner nötig.
+ */
+function Karte() {
+  const [geladen, setGeladen] = useState(false);
+
+  return (
+    <div className="mt-8 aspect-[4/3] sm:aspect-[16/6] w-full overflow-hidden border border-border bg-surface-warm">
+      {geladen ? (
+        <iframe
+          title="Karte: Gasthof Menzinger, Hauptstraße 2, 84435 Lengdorf"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=12.2183%2C48.2793%2C12.2483%2C48.2893&layer=mapnik&marker=48.2843%2C12.2333"
+          className="w-full h-full border-0"
+          loading="lazy"
+          referrerPolicy="no-referrer"
+        />
+      ) : (
+        <div className="w-full h-full flex flex-col items-center justify-center text-center px-6 py-8">
+          <MapPin size={28} className="text-accent mb-3" />
+          <p className="text-text-primary font-serif text-xl">
+            Hauptstraße 2 · 84435 Lengdorf
+          </p>
+          <p className="mt-3 text-sm text-text-secondary max-w-md leading-relaxed">
+            Die Karte wird von OpenStreetMap geladen. Dabei wird Ihre
+            IP-Adresse an OpenStreetMap übertragen.
+          </p>
+          <button
+            type="button"
+            onClick={() => setGeladen(true)}
+            className="mt-5 inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-5 py-3 rounded text-sm font-medium transition-colors cursor-pointer min-h-11"
+          >
+            Karte laden
+          </button>
+          <a
+            href="https://maps.google.com/?q=Hauptstraße+2+84435+Lengdorf"
+            target="_blank"
+            rel="noreferrer"
+            className="mt-3 text-sm text-primary hover:text-primary-dark underline underline-offset-4"
+          >
+            Stattdessen in Google Maps öffnen
+          </a>
+        </div>
+      )}
+    </div>
   );
 }
 

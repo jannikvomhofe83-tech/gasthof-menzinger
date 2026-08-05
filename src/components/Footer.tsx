@@ -43,8 +43,8 @@ export function Footer({
           <p>© 2026 Gasthof Menzinger – Lengdorf</p>
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-0">
             <Link to={crossLink.to} className="hover:text-white inline-flex items-center min-h-11 px-1">{crossLink.label}</Link>
-            <a href="#" className="hover:text-white inline-flex items-center min-h-11 px-1">Impressum</a>
-            <a href="#" className="hover:text-white inline-flex items-center min-h-11 px-1">Datenschutz</a>
+            <Link to="/impressum" className="hover:text-white inline-flex items-center min-h-11 px-1">Impressum</Link>
+            <Link to="/datenschutz" className="hover:text-white inline-flex items-center min-h-11 px-1">Datenschutz</Link>
             <a href="#bildnachweis" className="hover:text-white inline-flex items-center min-h-11 px-1">Bildnachweis</a>
           </div>
         </div>

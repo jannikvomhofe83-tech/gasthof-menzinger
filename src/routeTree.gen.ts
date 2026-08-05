@@ -10,7 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as MetzgereiRouteImport } from './routes/metzgerei'
+import { Route as ImpressumRouteImport } from './routes/impressum'
 import { Route as GasthausRouteImport } from './routes/gasthaus'
+import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as IndexRouteImport } from './routes/index'
 
 const MetzgereiRoute = MetzgereiRouteImport.update({
@@ -18,9 +20,19 @@ const MetzgereiRoute = MetzgereiRouteImport.update({
   path: '/metzgerei',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ImpressumRoute = ImpressumRouteImport.update({
+  id: '/impressum',
+  path: '/impressum',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GasthausRoute = GasthausRouteImport.update({
   id: '/gasthaus',
   path: '/gasthaus',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatenschutzRoute = DatenschutzRouteImport.update({
+  id: '/datenschutz',
+  path: '/datenschutz',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -31,31 +43,45 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/datenschutz': typeof DatenschutzRoute
   '/gasthaus': typeof GasthausRoute
+  '/impressum': typeof ImpressumRoute
   '/metzgerei': typeof MetzgereiRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/datenschutz': typeof DatenschutzRoute
   '/gasthaus': typeof GasthausRoute
+  '/impressum': typeof ImpressumRoute
   '/metzgerei': typeof MetzgereiRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/datenschutz': typeof DatenschutzRoute
   '/gasthaus': typeof GasthausRoute
+  '/impressum': typeof ImpressumRoute
   '/metzgerei': typeof MetzgereiRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/gasthaus' | '/metzgerei'
+  fullPaths: '/' | '/datenschutz' | '/gasthaus' | '/impressum' | '/metzgerei'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/gasthaus' | '/metzgerei'
-  id: '__root__' | '/' | '/gasthaus' | '/metzgerei'
+  to: '/' | '/datenschutz' | '/gasthaus' | '/impressum' | '/metzgerei'
+  id:
+    | '__root__'
+    | '/'
+    | '/datenschutz'
+    | '/gasthaus'
+    | '/impressum'
+    | '/metzgerei'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DatenschutzRoute: typeof DatenschutzRoute
   GasthausRoute: typeof GasthausRoute
+  ImpressumRoute: typeof ImpressumRoute
   MetzgereiRoute: typeof MetzgereiRoute
 }
 
@@ -68,11 +94,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MetzgereiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/impressum': {
+      id: '/impressum'
+      path: '/impressum'
+      fullPath: '/impressum'
+      preLoaderRoute: typeof ImpressumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/gasthaus': {
       id: '/gasthaus'
       path: '/gasthaus'
       fullPath: '/gasthaus'
       preLoaderRoute: typeof GasthausRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/datenschutz': {
+      id: '/datenschutz'
+      path: '/datenschutz'
+      fullPath: '/datenschutz'
+      preLoaderRoute: typeof DatenschutzRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -87,7 +127,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DatenschutzRoute: DatenschutzRoute,
   GasthausRoute: GasthausRoute,
+  ImpressumRoute: ImpressumRoute,
   MetzgereiRoute: MetzgereiRoute,
 }
 export const routeTree = rootRouteImport

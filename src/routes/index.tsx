@@ -74,8 +74,8 @@ function SplashPage() {
         <div className="mx-auto max-w-6xl px-6 h-14 flex items-center justify-between gap-4">
           <span>© 2026 Menzinger Lengdorf</span>
           <div className="flex gap-5">
-            <a href="#" className="hover:text-white inline-flex items-center min-h-11 px-1">Impressum</a>
-            <a href="#" className="hover:text-white inline-flex items-center min-h-11 px-1">Datenschutz</a>
+            <Link to="/impressum" className="hover:text-white inline-flex items-center min-h-11 px-1">Impressum</Link>
+            <Link to="/datenschutz" className="hover:text-white inline-flex items-center min-h-11 px-1">Datenschutz</Link>
           </div>
         </div>
       </footer>
