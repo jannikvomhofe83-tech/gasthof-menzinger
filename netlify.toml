@@ -1,0 +1,22 @@
+# Netlify-Deploy für TanStack Start (Nitro).
+#
+# Der Build erzeugt zwei Teile:
+#   dist/                          statische Assets (publish)
+#   .netlify/functions-internal/   SSR-Server als Netlify Function
+#
+# Die Function bringt ihre Route selbst mit (Functions-v2-In-Source-Config:
+# path "/*", preferStatic true), deshalb ist hier keine _redirects-Regel nötig.
+
+[build]
+  command = "bun run build"
+  publish = "dist"
+
+[build.environment]
+  # Nitro erkennt Netlify grundsätzlich selbst. Explizit gepinnt, damit der Build
+  # nicht auf das Default-Target "cloudflare-module" zurückfällt — dessen Output
+  # (Worker + wrangler.json) könnte Netlify nicht ausliefern.
+  NITRO_PRESET = "netlify"
+
+  # Vite 8 verlangt Node ^20.19 || >=22.12 — ohne Pin hängt der Build an der
+  # Default-Version des Build-Images.
+  NODE_VERSION = "22"
