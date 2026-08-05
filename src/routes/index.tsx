@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { BILDER } from "@/lib/bilder";
+import { BildHinweis } from "@/components/BildHinweis";
 import metzgereiHero from "@/assets/metzgerei-hero.jpg";
 
 export const Route = createFileRoute("/")({
@@ -59,6 +60,7 @@ function SplashPage() {
             text="Fleisch- und Wurstwaren aus eigener Herstellung."
             cta="Zur Metzgerei"
             side="right"
+            hinweis
           />
         </div>
 
@@ -112,6 +114,7 @@ function SplitPanel({
   text,
   cta,
   side,
+  hinweis = false,
 }: {
   to: string;
   image: string;
@@ -123,6 +126,7 @@ function SplitPanel({
   text: string;
   cta: string;
   side: "left" | "right";
+  hinweis?: boolean;
 }) {
   return (
     <Link
@@ -184,6 +188,9 @@ function SplitPanel({
         >
           {text}
         </p>
+        {hinweis && (
+          <BildHinweis tone="dunkel" className="mt-6 max-w-xs" />
+        )}
         <span className="mt-9 inline-flex items-center gap-2 border border-white/80 bg-black/25 backdrop-blur-[2px] text-white hover:bg-white hover:text-text-primary hover:border-white transition-colors px-7 py-3.5 text-sm tracking-wide font-medium">
           {cta} <ArrowRight size={16} />
         </span>

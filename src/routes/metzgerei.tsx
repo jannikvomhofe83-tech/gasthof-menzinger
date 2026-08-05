@@ -20,6 +20,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { SectionHeading } from "@/components/SectionHeading";
 import { FadeIn } from "@/components/FadeIn";
+import { BildHinweis, HINWEIS_LANG } from "@/components/BildHinweis";
 import heroImg from "@/assets/metzgerei-hero.jpg";
 import aboutImg from "@/assets/metzgerei-about.jpg";
 import katFrischfleisch from "@/assets/kat-frischfleisch.jpg";
@@ -93,6 +94,10 @@ function Hero() {
         className="absolute inset-0 w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-background/72" />
+      <BildHinweis
+        text={HINWEIS_LANG}
+        className="absolute bottom-3 right-4 left-4 z-10 text-right"
+      />
       <div className="relative mx-auto max-w-6xl px-6 pt-24 pb-28 md:pt-32 md:pb-36">
         <div className="max-w-2xl bg-background/85 backdrop-blur-sm border border-accent-soft px-8 py-10 md:px-12 md:py-14">
           <div className="overline text-meat">Familienmetzgerei · seit Generationen in Lengdorf</div>
@@ -147,6 +152,7 @@ function About() {
               loading="lazy"
               className="relative w-full h-[520px] object-cover"
             />
+            <BildHinweis text={HINWEIS_LANG} className="relative mt-2" />
           </div>
         </FadeIn>
         <FadeIn delay={120}>
@@ -258,6 +264,7 @@ function Warum() {
                   loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
+                <BildHinweis tone="dunkel" className="absolute bottom-2 left-3 right-3" />
               </div>
               <div className="relative overflow-hidden">
                 <img
@@ -266,6 +273,7 @@ function Warum() {
                   loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
+                <BildHinweis tone="dunkel" className="absolute bottom-2 left-3 right-3" />
               </div>
             </div>
           </FadeIn>
@@ -342,6 +350,7 @@ function Assortment() {
                   />
                 </div>
                 <div className="p-6 flex-1 flex flex-col">
+                  <BildHinweis className="mb-3" />
                   <div className="w-10 h-10 rounded-full bg-meat/10 text-meat flex items-center justify-center mb-3">
                     {c.icon}
                   </div>
