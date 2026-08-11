@@ -48,6 +48,10 @@ export function Footer({
             <a href="#bildnachweis" className="hover:text-white inline-flex items-center min-h-11 px-1">Bildnachweis</a>
           </div>
         </div>
+        <p className="mx-auto max-w-6xl px-6 pb-4 text-xs text-white/60">
+          Teile der Inhalte dieser Website wurden mit Unterstützung von KI
+          erstellt.
+        </p>
         {/* CC-BY / CC-BY-SA verlangen Namensnennung der Speisenfotos */}
         <details id="bildnachweis" className="mx-auto max-w-6xl px-6 pb-6 text-xs text-white/50">
           <summary className="cursor-pointer hover:text-white/80">Bildnachweis</summary>

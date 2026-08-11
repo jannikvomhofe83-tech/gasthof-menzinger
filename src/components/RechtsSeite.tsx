@@ -54,6 +54,10 @@ export function RechtsSeite({
             </Link>
           </div>
         </div>
+        <p className="mx-auto max-w-3xl px-6 pb-5">
+          Teile der Inhalte dieser Website wurden mit Unterstützung von KI
+          erstellt.
+        </p>
       </footer>
     </div>
   );

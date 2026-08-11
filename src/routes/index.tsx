@@ -78,6 +78,10 @@ function SplashPage() {
             <Link to="/datenschutz" className="hover:text-white inline-flex items-center min-h-11 px-1">Datenschutz</Link>
           </div>
         </div>
+        <p className="mx-auto max-w-6xl px-6 pb-4">
+          Teile der Inhalte dieser Website wurden mit Unterstützung von KI
+          erstellt.
+        </p>
       </footer>
     </div>
   );
