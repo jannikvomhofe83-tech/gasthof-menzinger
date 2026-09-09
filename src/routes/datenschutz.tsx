@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { RechtsSeite, Abschnitt, Offen } from "@/components/RechtsSeite";
+import { RechtsSeite, Abschnitt } from "@/components/RechtsSeite";
 
 export const Route = createFileRoute("/datenschutz")({
   head: () => ({
@@ -20,13 +20,22 @@ function DatenschutzPage() {
           der Datenschutz-Grundverordnung (DSGVO) ist:
         </p>
         <p>
-          <Offen was="Vollständiger Firmenname inkl. Rechtsform" />
+          Gasthof Menzinger, Georg Menzinger
           <br />
           Hauptstraße 2, 84435 Lengdorf
           <br />
           Telefon: 08083 / 374
           <br />
-          E-Mail: gasthaus@menzinger-lengdorf.de
+          E-Mail: gmenzinger@t-online.de
+        </p>
+        <p>
+          Metzgerei Menzinger, Georg Menzinger
+          <br />
+          Hauptstraße 2a, 84435 Lengdorf
+          <br />
+          Telefon: 08083 / 547 124
+          <br />
+          E-Mail: info@menzinger-lengdorf.de
         </p>
       </Abschnitt>
 
@@ -60,7 +69,9 @@ function DatenschutzPage() {
           Darstellung und der Sicherheit unserer Website.
         </p>
         <p>
-          Speicherdauer: <Offen was="Löschfrist des Hosters eintragen, üblich sind 7 bis 30 Tage" />
+          Speicherdauer: Die Zugriffsprotokolle einschließlich der IP-Adressen
+          werden von unserem Hosting-Anbieter für weniger als 30 Tage
+          gespeichert und danach automatisch gelöscht.
         </p>
       </Abschnitt>
 
@@ -68,7 +79,9 @@ function DatenschutzPage() {
         <p>
           Diese Website wird gehostet bei:
           <br />
-          <Offen was="Name und Anschrift des Hosting-Anbieters" />
+          Netlify, Inc.
+          <br />
+          101 2nd Street, San Francisco, CA 94105, USA
         </p>
         <p>
           Der Anbieter verarbeitet die oben genannten Server-Logfiles in unserem
@@ -76,7 +89,24 @@ function DatenschutzPage() {
           Auftragsverarbeitung gemäß Art. 28 DSGVO.
         </p>
         <p>
-          <Offen was="Falls der Hoster außerhalb der EU sitzt oder Daten dorthin überträgt, muss hier die Rechtsgrundlage für den Drittlandtransfer ergänzt werden (z. B. EU-Standardvertragsklauseln)" />
+          Da Netlify seinen Sitz in den USA hat, können dabei personenbezogene
+          Daten in ein Drittland übertragen werden. Netlify, Inc. ist nach dem
+          EU-U.S. Data Privacy Framework zertifiziert (Angemessenheitsbeschluss
+          der EU-Kommission vom 10. Juli 2023). Ergänzend hat Netlify die von
+          der EU-Kommission erlassenen Standardvertragsklauseln nach
+          Durchführungsbeschluss (EU) 2021/914 vereinbart. Rechtsgrundlage der
+          Übermittlung ist Art. 45 bzw. Art. 46 Abs. 2 lit. c DSGVO.
+        </p>
+        <p>
+          Weitere Informationen:{" "}
+          <a
+            href="https://www.netlify.com/privacy/"
+            target="_blank"
+            rel="noreferrer"
+            className="text-primary hover:underline break-words"
+          >
+            netlify.com/privacy
+          </a>
         </p>
       </Abschnitt>
 

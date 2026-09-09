@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { RechtsSeite, Abschnitt, Offen } from "@/components/RechtsSeite";
+import { RechtsSeite, Abschnitt } from "@/components/RechtsSeite";
 
 export const Route = createFileRoute("/impressum")({
   head: () => ({
@@ -11,12 +11,24 @@ export const Route = createFileRoute("/impressum")({
   component: ImpressumPage,
 });
 
+/**
+ * Gasthaus und Metzgerei werden getrennt ausgewiesen: eigene Anschrift,
+ * eigene Rufnummer, eigene E-Mail. Die gemeinsamen Pflichtangaben
+ * (§ 18 MStV, Streitbeilegung, Bildnachweis) stehen einmal am Ende.
+ */
 function ImpressumPage() {
   return (
     <RechtsSeite titel="Impressum">
-      <Abschnitt titel="Angaben gemäß § 5 DDG">
+      <p className="text-text-secondary leading-relaxed text-[15px]">
+        Angaben gemäß § 5 DDG für die beiden Betriebe, die auf dieser Website
+        dargestellt werden.
+      </p>
+
+      <BetriebTitel>Gasthof Menzinger</BetriebTitel>
+
+      <Abschnitt titel="Anbieter">
         <p>
-          <Offen was="Vollständiger Firmenname inkl. Rechtsform" />
+          Gasthof Menzinger
           <br />
           Hauptstraße 2
           <br />
@@ -25,9 +37,7 @@ function ImpressumPage() {
       </Abschnitt>
 
       <Abschnitt titel="Vertreten durch">
-        <p>
-          <Offen was="Vor- und Nachname des Inhabers bzw. der Geschäftsführung" />
-        </p>
+        <p>Georg Menzinger</p>
       </Abschnitt>
 
       <Abschnitt titel="Kontakt">
@@ -39,48 +49,83 @@ function ImpressumPage() {
           <br />
           E-Mail:{" "}
           <a
-            href="mailto:gasthaus@menzinger-lengdorf.de"
+            href="mailto:gmenzinger@t-online.de"
             className="text-primary hover:underline"
           >
-            gasthaus@menzinger-lengdorf.de
+            gmenzinger@t-online.de
           </a>
         </p>
+        <p>Veranstaltungen und Feiern im Gasthaus nach Absprache.</p>
       </Abschnitt>
 
-      <Abschnitt titel="Umsatzsteuer-Identifikationsnummer">
-        <p>
-          Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:
-          <br />
-          <Offen was="USt-IdNr., z. B. DE123456789 – falls nicht vorhanden, diesen Abschnitt ersatzlos streichen" />
-        </p>
-      </Abschnitt>
-
-      <Abschnitt titel="Eintragung in der Handwerksrolle">
-        <p>
-          Für den Metzgereibetrieb:
-          <br />
-          Eingetragen bei: <Offen was="Zuständige Handwerkskammer, vermutlich HWK für München und Oberbayern" />
-          <br />
-          Handwerksrollen-Nr.: <Offen was="Nummer" />
-          <br />
-          Berufsbezeichnung: Metzger / Fleischer (verliehen in der
-          Bundesrepublik Deutschland)
-        </p>
+      <Abschnitt titel="Steuernummer">
+        <p>52036187591</p>
       </Abschnitt>
 
       <Abschnitt titel="Aufsichtsbehörde">
         <p>
           Für den Gaststättenbetrieb (Gaststättenerlaubnis nach § 2 GastG):
           <br />
-          <Offen was="Zuständige Behörde, in der Regel das Landratsamt Erding" />
+          Landratsamt Erding
         </p>
       </Abschnitt>
+
+      <BetriebTitel>Metzgerei Menzinger</BetriebTitel>
+
+      <Abschnitt titel="Anbieter">
+        <p>
+          Metzgerei Menzinger
+          <br />
+          Hauptstraße 2a
+          <br />
+          84435 Lengdorf
+        </p>
+      </Abschnitt>
+
+      <Abschnitt titel="Kontakt">
+        <p>
+          Telefon:{" "}
+          <a href="tel:08083547124" className="text-primary hover:underline">
+            08083 / 547 124
+          </a>
+          <br />
+          E-Mail:{" "}
+          <a
+            href="mailto:info@menzinger-lengdorf.de"
+            className="text-primary hover:underline"
+          >
+            info@menzinger-lengdorf.de
+          </a>
+        </p>
+      </Abschnitt>
+
+      <Abschnitt titel="Öffnungszeiten">
+        <p>
+          Montag: 6:30 – 12:30 Uhr
+          <br />
+          Dienstag bis Freitag: 6:30 – 18:00 Uhr
+          <br />
+          Samstag: 6:30 – 12:00 Uhr
+          <br />
+          Sonntag: geschlossen
+        </p>
+      </Abschnitt>
+
+      <Abschnitt titel="Aufsichtsbehörde">
+        <p>Landratsamt Erding</p>
+      </Abschnitt>
+
+      <BetriebTitel>Für beide Betriebe</BetriebTitel>
 
       <Abschnitt titel="Redaktionell verantwortlich">
         <p>
           Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:
           <br />
-          <Offen was="Name und vollständige Anschrift der verantwortlichen Person" />
+          Georg Menzinger
+          <br />
+          Hauptstraße 2
+          <br />
+          84435 Lengdorf
         </p>
       </Abschnitt>
 
@@ -119,5 +164,16 @@ function ImpressumPage() {
         </p>
       </Abschnitt>
     </RechtsSeite>
+  );
+}
+
+/** Trennt die beiden Betriebe optisch deutlich voneinander. */
+function BetriebTitel({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="pt-6 first:pt-0 border-t border-border">
+      <h2 className="font-serif text-3xl md:text-4xl tracking-tight text-text-primary">
+        {children}
+      </h2>
+    </div>
   );
 }

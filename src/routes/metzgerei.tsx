@@ -67,7 +67,7 @@ function MetzgereiPage() {
       <Navbar
         brand="Metzgerei Menzinger"
         links={NAV_LINKS}
-        ctaPhone={{ label: "Anrufen: 08083 374", tel: "08083374" }}
+        ctaPhone={{ label: "Anrufen: 08083 547 124", tel: "08083547124" }}
         crossLink={{ to: "/gasthaus", label: "Zum Gasthaus" }}
         variant="meat"
       />
@@ -127,10 +127,10 @@ function Hero() {
               Unser Sortiment <ArrowRight size={16} />
             </a>
             <a
-              href="tel:08083374"
+              href="tel:08083547124"
               className="inline-flex items-center justify-center gap-2 border border-meat text-meat hover:bg-meat hover:text-white px-6 py-3 rounded text-sm font-medium tracking-wide transition-colors"
             >
-              <Phone size={16} /> 08083 / 374
+              <Phone size={16} /> 08083 / 547 124
             </a>
           </div>
         </div>
@@ -384,10 +384,10 @@ function Party() {
             </div>
             <div className="md:text-right">
               <a
-                href="tel:08083374"
+                href="tel:08083547124"
                 className="inline-flex items-center gap-3 bg-white text-meat hover:bg-background px-6 py-4 rounded text-lg font-serif transition-colors"
               >
-                <Phone size={20} /> 08083 / 374
+                <Phone size={20} /> 08083 / 547 124
               </a>
             </div>
           </div>
@@ -426,22 +426,26 @@ function Contact() {
           <FadeIn>
             <div className="overline text-meat mb-4">Öffnungszeiten</div>
             <h2 className="font-serif text-3xl md:text-4xl mb-6">Wann Sie uns finden</h2>
-            <ul className="space-y-3">
-              <li className="flex justify-between border-b border-accent-soft/60 pb-2">
-                <span className="text-text-secondary">Montag – Freitag</span>
-                <span>bitte erfragen</span>
+            <ul className="space-y-3 text-text-primary">
+              <li className="flex justify-between gap-4 border-b border-accent-soft/60 pb-2">
+                <span className="text-text-secondary">Montag</span>
+                <span className="tabular-nums">6:30 – 12:30</span>
               </li>
-              <li className="flex justify-between border-b border-accent-soft/60 pb-2">
+              <li className="flex justify-between gap-4 border-b border-accent-soft/60 pb-2">
+                <span className="text-text-secondary">Dienstag – Freitag</span>
+                <span className="tabular-nums">6:30 – 18:00</span>
+              </li>
+              <li className="flex justify-between gap-4 border-b border-accent-soft/60 pb-2">
                 <span className="text-text-secondary">Samstag</span>
-                <span>bitte erfragen</span>
+                <span className="tabular-nums">6:30 – 12:00</span>
               </li>
-              <li className="flex justify-between border-b border-accent-soft/60 pb-2">
+              <li className="flex justify-between gap-4 border-b border-accent-soft/60 pb-2">
                 <span className="text-text-secondary">Sonntag</span>
                 <span>geschlossen</span>
               </li>
             </ul>
             <p className="mt-6 text-sm text-text-secondary italic">
-              Aktuelle Öffnungszeiten bitte telefonisch erfragen.
+              An Feiertagen können die Zeiten abweichen.
             </p>
           </FadeIn>
 
@@ -453,22 +457,22 @@ function Contact() {
                 <MapPin size={18} className="mt-1 text-accent" />
                 <span>
                   Metzgerei Menzinger<br />
-                  Hauptstraße 2<br />
+                  Hauptstraße 2a<br />
                   84435 Lengdorf
                 </span>
               </div>
               <a
-                href="tel:08083374"
+                href="tel:08083547124"
                 className="flex items-center gap-3 text-meat font-serif text-3xl md:text-4xl hover:text-meat-dark transition-colors"
               >
-                <Phone size={26} /> 08083 / 374
+                <Phone size={26} /> 08083 / 547 124
               </a>
               <a
-                href="mailto:metzgerei@menzinger-lengdorf.de"
+                href="mailto:info@menzinger-lengdorf.de"
                 className="flex items-center gap-3 hover:text-meat transition-colors"
               >
                 <Mail size={18} className="text-accent" />
-                metzgerei@menzinger-lengdorf.de
+                info@menzinger-lengdorf.de
               </a>
             </address>
           </FadeIn>

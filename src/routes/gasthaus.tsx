@@ -387,7 +387,7 @@ function Contact() {
                 <span className="tabular-nums text-right">
                   9:00 – 14:00
                   <br />
-                  17:00 – ?
+                  ab 17:00
                 </span>
               </li>
               <li className="flex justify-between gap-4 border-b border-accent-soft/60 pb-2">
@@ -405,10 +405,10 @@ function Contact() {
             <div className="mt-6 border-t border-accent-soft/60 pt-5">
               <div className="text-text-primary">Events nach Absprache</div>
               <a
-                href="tel:01728032647"
+                href="tel:08083374"
                 className="mt-1 inline-flex items-center gap-2 text-primary hover:text-primary-dark transition-colors font-medium"
               >
-                <Phone size={16} /> 0172 / 8032647
+                <Phone size={16} /> 08083 / 374
               </a>
             </div>
           </FadeIn>
@@ -432,11 +432,11 @@ function Contact() {
                 <Phone size={26} /> 08083 / 374
               </a>
               <a
-                href="mailto:gasthaus@menzinger-lengdorf.de"
+                href="mailto:gmenzinger@t-online.de"
                 className="flex items-center gap-3 text-text-primary hover:text-primary transition-colors"
               >
                 <Mail size={18} className="text-accent" />
-                gasthaus@menzinger-lengdorf.de
+                gmenzinger@t-online.de
               </a>
             </address>
 

@@ -1,6 +1,41 @@
 import { Link } from "@tanstack/react-router";
 import { BILDNACHWEIS } from "@/lib/bilder";
 
+/** Kontakt und Öffnungszeiten je Betrieb – Gasthaus und Metzgerei
+ *  sitzen in getrennten Häusern und haben eigene Rufnummern. */
+const BETRIEB = {
+  primary: {
+    name: "Gasthof Menzinger",
+    strasse: "Hauptstraße 2",
+    tel: "08083374",
+    telLabel: "08083 / 374",
+    zeiten: (
+      <>
+        Montag: Ruhetag
+        <br />
+        Di–So ab 9:00 Uhr
+        <br />
+        Mittagstisch 11:00–13:30
+      </>
+    ),
+  },
+  meat: {
+    name: "Metzgerei Menzinger",
+    strasse: "Hauptstraße 2a",
+    tel: "08083547124",
+    telLabel: "08083 / 547 124",
+    zeiten: (
+      <>
+        Montag: 6:30–12:30
+        <br />
+        Di–Fr: 6:30–18:00
+        <br />
+        Samstag: 6:30–12:00
+      </>
+    ),
+  },
+} as const;
+
 export function Footer({
   variant = "primary",
   crossLink,
@@ -9,6 +44,7 @@ export function Footer({
   crossLink: { to: string; label: string };
 }) {
   const bg = variant === "meat" ? "#5E211E" : "#1D5230";
+  const betrieb = BETRIEB[variant];
   return (
     <footer style={{ backgroundColor: bg }} className="text-white/90 border-t-4 border-background">
       <div className="mx-auto max-w-6xl px-6 py-14 grid grid-cols-1 gap-10 md:grid-cols-4 text-sm">
@@ -24,18 +60,17 @@ export function Footer({
         <div>
           <div className="overline text-white/60 mb-3">Kontakt</div>
           <p className="leading-relaxed">
-            Hauptstraße 2<br />
+            {betrieb.name}<br />
+            {betrieb.strasse}<br />
             84435 Lengdorf<br />
-            <a href="tel:08083374" className="hover:text-white">08083 / 374</a>
+            <a href={`tel:${betrieb.tel}`} className="hover:text-white">
+              {betrieb.telLabel}
+            </a>
           </p>
         </div>
         <div>
           <div className="overline text-white/60 mb-3">Öffnungszeiten</div>
-          <p className="leading-relaxed text-white/80">
-            Montag: Ruhetag<br />
-            Di–So ab 8:30 Uhr<br />
-            Mittagstisch 11:00–13:30
-          </p>
+          <p className="leading-relaxed text-white/80">{betrieb.zeiten}</p>
         </div>
       </div>
       <div className="border-t border-white/15">
