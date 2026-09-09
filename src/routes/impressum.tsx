@@ -163,6 +163,14 @@ function ImpressumPage() {
           wir derartige Links umgehend entfernen.
         </p>
       </Abschnitt>
+
+      <Abschnitt titel="Hinweis zu KI-generierten Inhalten">
+        <p>
+          Teile der Inhalte dieser Website (Texte und Bilder) wurden mit
+          Unterstützung von künstlicher Intelligenz erstellt und redaktionell
+          geprüft.
+        </p>
+      </Abschnitt>
     </RechtsSeite>
   );
 }
